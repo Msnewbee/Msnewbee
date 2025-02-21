@@ -1,0 +1,33 @@
+
+/* globals.css atau file CSS yang relevan */
+footer {
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+}
+
+.footer-links {
+  margin-bottom: 15px;
+}
+
+.footer-links a {
+  margin: 0 10px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.social-media-links a {
+  margin: 0 15px;
+  color: #fff;
+}
+
+.social-media-links a:hover {
+  color: #1da1f2; /* Warna biru Twitter */
+}
+
+footer p {
+  margin-top: 20px;
+  font-size: 14px;
+}
+    
