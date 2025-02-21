@@ -3,28 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ms_bee01 - Platform Iklan & Video</title>
-    <meta name="description" content="Ms_bee01 adalah platform untuk menampilkan iklan dan mengunggah video pribadi Anda.">
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+    <title>My GitHub Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #333;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+        }
+        .content {
+            margin: 20px;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            margin-top: 20px;
+            padding: 10px;
+            background: #333;
+            color: white;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <div id="header"></div>  <!-- Header akan dimuat di sini -->
-        
-        <main class="content">
-            <h1>Selamat Datang di Ms_bee01</h1>
-            <p>Platform terbaik untuk berbagi video dan menampilkan iklan Anda.</p>
-            <button id="darkModeToggle">Ubah Tema</button>
-        </main>
-        
-        <div id="footer"></div>  <!-- Footer akan dimuat di sini -->
+    <header>
+        Selamat Datang di Situs Saya!
+    </header>
+    <div class="content">
+        <p>Ini adalah halaman sederhana yang dihosting menggunakan GitHub Pages.</p>
+        <p>Edit file ini di repository GitHub Anda untuk mengubah isi halaman.</p>
     </div>
-
-    <script>
-        // Memuat header dan footer
-        fetch('header.html').then(res => res.text()).then(data => document.getElementById('header').innerHTML = data);
-        fetch('footer.html').then(res => res.text()).then(data => document.getElementById('footer').innerHTML = data);
-    </script>
+    <footer>
+        &copy; 2025 My GitHub Page
+    </footer>
 </body>
 </html>
