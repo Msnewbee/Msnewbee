@@ -34,6 +34,7 @@
             margin: 0 15px;
             font-size: 18px;
             transition: 0.3s;
+            cursor: pointer;
         }
         nav a:hover {
             color: #ffd700;
@@ -53,6 +54,10 @@
             border-radius: 8px;
             text-align: center;
             margin-bottom: 20px;
+            display: none;
+        }
+        .content-box.active {
+            display: block;
         }
         footer {
             margin-top: 20px;
@@ -61,12 +66,20 @@
             color: white;
             text-align: center;
         }
-        .content-box img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
     </style>
+    <script>
+        function showTab(tabId) {
+            let sections = document.querySelectorAll('.content-box');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+        }
+        
+        window.onload = function() {
+            showTab('loby');
+        };
+    </script>
 </head>
 <body>
     
@@ -74,19 +87,15 @@
         <h1>Selamat Datang di iclik bos!</h1>
     </header>
     <nav>
-        <a href="#loby">Loby</a>
-        <a href="#vidio">Vidio</a>
-        <a href="#kontak">Kontak</a>
+        <a onclick="showTab('loby')">Loby</a>
+        <a onclick="showTab('vidio')">Vidio</a>
+        <a onclick="showTab('kontak')">Kontak</a>
     </nav>
     
     <div class="container">
         <div class="content-box" id="loby">
             <h2>Selamat Datang di Loby</h2>
             <p>Silakan pilih menu navigasi untuk melanjutkan.</p>
-        </div>
-        
-        <div class="content-box">
-            <img src="https://drive.google.com/uc?export=view&id=1b8MFepG4KUPHrZ4DG71oWv-LZ-pPerKQ" alt="Gambar iclik bos">
         </div>
         
         <div class="content-box" id="vidio">
