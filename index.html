@@ -59,6 +59,25 @@
         .content-box.active {
             display: block;
         }
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 15px;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #555;
+        }
         footer {
             margin-top: 20px;
             padding: 10px;
@@ -74,6 +93,15 @@
                 section.classList.remove('active');
             });
             document.getElementById(tabId).classList.add('active');
+        }
+        
+        function loadVideo() {
+            let videoUrl = document.getElementById('videoLink').value;
+            let videoFrame = document.getElementById('videoFrame');
+            if (videoUrl) {
+                videoFrame.src = videoUrl;
+                videoFrame.style.display = 'block';
+            }
         }
         
         window.onload = function() {
@@ -100,8 +128,10 @@
         
         <div class="content-box" id="vidio">
             <h2>Vidio</h2>
-            <p>Berbagai video menarik tersedia di sini.</p>
-            <iframe src="https://doodstream.life/videoShare?surl=mPu56a1ZZMSzTqm72zSwUA" width="100%" height="400" frameborder="0" allowfullscreen></iframe>
+            <p>Masukkan link video untuk ditonton:</p>
+            <input type="text" id="videoLink" placeholder="Masukkan link video...">
+            <button onclick="loadVideo()">Tonton</button>
+            <iframe id="videoFrame" width="100%" height="400" frameborder="0" allowfullscreen style="display:none;"></iframe>
         </div>
         
         <div class="content-box" id="kontak">
