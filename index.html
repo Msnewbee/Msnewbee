@@ -9,11 +9,13 @@
     <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <style>
+        /* Default Styles */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
+            transition: background-color 0.3s, color 0.3s;
         }
         header, footer {
             background: #333;
@@ -56,6 +58,57 @@
             text-align: center;
             margin-top: 10px;
         }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header, footer {
+                padding: 15px;
+            }
+            nav {
+                padding: 8px;
+            }
+            .container {
+                width: 100%;
+                padding: 10px;
+            }
+            .content-box {
+                padding: 15px;
+            }
+            nav a {
+                font-size: 16px;
+            }
+        }
+
+        /* Dark Mode */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #121212;
+                color: white;
+            }
+            header, footer {
+                background-color: #333;
+            }
+            nav {
+                background-color: #444;
+            }
+            .container {
+                background-color: #222;
+            }
+        }
+
+        /* Dark Mode Toggle Button */
+        .dark-mode-btn {
+            background-color: #444;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .dark-mode-btn:hover {
+            background-color: #666;
+        }
     </style>
     <script>
         function showTab(tabId) {
@@ -65,18 +118,43 @@
             });
             document.getElementById(tabId).classList.add('active');
         }
+
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({pageLanguage: 'id'}, 'google_translate_element');
         }
+
+        function toggleDarkMode() {
+            const currentMode = localStorage.getItem('mode');
+            if (currentMode === 'dark') {
+                document.body.classList.remove('dark-mode');
+                localStorage.setItem('mode', 'light');
+            } else {
+                document.body.classList.add('dark-mode');
+                localStorage.setItem('mode', 'dark');
+            }
+        }
+
         window.onload = function() {
             showTab('loby');
+            if (localStorage.getItem('mode') === 'dark') {
+                document.body.classList.add('dark-mode');
+            }
         };
+    </script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXX-X"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-XXXXXXX-X');  // Ganti dengan ID Google Analytics Anda
     </script>
 </head>
 <body>
     <header>
         <h1>Selamat Datang di iclik bos!</h1>
         <div id="google_translate_element"></div>
+        <button class="dark-mode-btn" onclick="toggleDarkMode()">Toggle Dark Mode</button>
     </header>
     <nav>
         <a onclick="showTab('loby')">Loby</a>
@@ -106,6 +184,14 @@
             <h3>Dukung Kami</h3>
             <p>Jika Anda ingin mendukung perkembangan situs ini, silakan berdonasi melalui link berikut:</p>
             <p><a href="https://trakteer.id/bilbil13" target="_blank">Klik di sini untuk berdonasi</a></p>
+        </div>
+        <div class="content-box" id="feedback">
+            <h2>Berikan Feedback Anda</h2>
+            <form action="submit_feedback.php" method="post">
+                <label for="feedback">Masukkan feedback Anda:</label><br>
+                <textarea id="feedback" name="feedback" rows="4" cols="50"></textarea><br>
+                <input type="submit" value="Kirim Feedback">
+            </form>
         </div>
     </div>
     <footer>
