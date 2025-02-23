@@ -72,45 +72,31 @@
         }
     </style>
     <script>
-        const scriptUrl = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec'; // Ganti dengan URL Google Apps Script Anda
+        const scriptUrl = 'URL_GOOGLE_APPS_SCRIPT'; // Ganti dengan URL Google Apps Script Anda
 
         async function likeVideo(videoId) {
-            try {
-                const response = await fetch(scriptUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ videoId: videoId, action: 'like' })
-                });
-                const data = await response.json();
-                document.getElementById(`likeCount_${videoId}`).innerText = data.likes;
-            } catch (error) {
-                console.error('Error:', error);
-            }
+            const response = await fetch(scriptUrl, {
+                method: 'POST',
+                body: JSON.stringify({ videoId: videoId, action: 'like' })
+            });
+            const data = await response.json();
+            document.getElementById(likeCount_${videoId}).innerText = data.likes;
         }
 
         async function dislikeVideo(videoId) {
-            try {
-                const response = await fetch(scriptUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ videoId: videoId, action: 'dislike' })
-                });
-                const data = await response.json();
-                document.getElementById(`dislikeCount_${videoId}`).innerText = data.dislikes;
-            } catch (error) {
-                console.error('Error:', error);
-            }
+            const response = await fetch(scriptUrl, {
+                method: 'POST',
+                body: JSON.stringify({ videoId: videoId, action: 'dislike' })
+            });
+            const data = await response.json();
+            document.getElementById(dislikeCount_${videoId}).innerText = data.dislikes;
         }
 
         async function loadLikes(videoId) {
-            try {
-                const response = await fetch(`${scriptUrl}?videoId=${videoId}`);
-                const data = await response.json();
-                document.getElementById(`likeCount_${videoId}`).innerText = data.likes;
-                document.getElementById(`dislikeCount_${videoId}`).innerText = data.dislikes;
-            } catch (error) {
-                console.error('Error:', error);
-            }
+            const response = await fetch(${scriptUrl}?videoId=${videoId});
+            const data = await response.json();
+            document.getElementById(likeCount_${videoId}).innerText = data.likes;
+            document.getElementById(dislikeCount_${videoId}).innerText = data.dislikes;
         }
 
         function showTab(tabId) {
@@ -123,9 +109,9 @@
 
         window.onload = function() {
             showTab('loby');
-            loadLikes('video1');
-            loadLikes('video2');
-            loadLikes('video3');
+            loadLikes('video1'); // Muat Like dan Dislike untuk video1
+            loadLikes('video2'); // Muat Like dan Dislike untuk video2
+            loadLikes('video3'); // Muat Like dan Dislike untuk video3
         };
     </script>
 </head>
@@ -177,4 +163,16 @@
                 <button onclick="dislikeVideo('video3')">👎 <span id="dislikeCount_video3">0</span></button>
             </div>
         </div>
-        <div class="content-box" id="kontak
+        <div class="content-box" id="kontak">
+            <h2>Kontak</h2>
+            <p>Email: <a href="mailto:bilariko2@gmail.com">bilariko2@gmail.com</a></p>
+            <h3>Dukung Kami</h3>
+            <p>Jika Anda ingin mendukung perkembangan situs ini, silakan berdonasi melalui link berikut:</p>
+            <p><a href="https://trakteer.id/bilbil13" target="_blank">Klik di sini untuk berdonasi</a></p>
+        </div>
+    </div>
+    <footer>
+        &copy; 2025 iclik bos - Semua Hak Dilindungi
+    </footer>
+</body>
+</html>
