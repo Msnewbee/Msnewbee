@@ -4,43 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Selamat datang di iclik bos - platform terbaik untuk berbagi video dan informasi.">
+    <meta name="keywords" content="video, berbagi, iclik bos, platform video">
+    <meta name="author" content="iclik bos">
     <title>iclik bos</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f8f9fa;
+            color: #333;
         }
         header {
-            background: #333;
+            background: #222;
             color: white;
             padding: 20px;
-            font-size: 24px;
             text-align: center;
+            font-size: 24px;
         }
         nav {
-            background: #444;
-            padding: 10px;
+            background: #333;
+            padding: 15px;
             position: sticky;
             top: 0;
             width: 100%;
-            z-index: 1000;
             text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
         nav a {
             color: white;
             text-decoration: none;
             margin: 0 15px;
             font-size: 18px;
+            padding: 10px;
             transition: 0.3s;
-            cursor: pointer;
         }
         nav a:hover {
             color: #ffd700;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
         }
         .container {
-            max-width: 80%;
+            max-width: 90%;
             margin: 20px auto;
             display: flex;
             flex-direction: column;
@@ -68,33 +73,37 @@
         }
         button {
             padding: 10px 15px;
-            background: #333;
+            background: #007bff;
             color: white;
             border: none;
             border-radius: 5px;
             margin-top: 10px;
             cursor: pointer;
+            transition: 0.3s;
         }
         button:hover {
-            background: #555;
+            background: #0056b3;
+        }
+        iframe {
+            width: 100%;
+            height: 400px;
+            border-radius: 8px;
         }
         footer {
             margin-top: 20px;
-            padding: 10px;
-            background: #333;
+            padding: 15px;
+            background: #222;
             color: white;
             text-align: center;
         }
     </style>
     <script>
         function showTab(tabId) {
-            let sections = document.querySelectorAll('.content-box');
-            sections.forEach(section => {
+            document.querySelectorAll('.content-box').forEach(section => {
                 section.classList.remove('active');
             });
             document.getElementById(tabId).classList.add('active');
         }
-        
         function loadVideo() {
             let videoUrl = document.getElementById('videoLink').value;
             let videoFrame = document.getElementById('videoFrame');
@@ -103,48 +112,41 @@
                 videoFrame.style.display = 'block';
             }
         }
-        
         window.onload = function() {
             showTab('loby');
         };
     </script>
 </head>
 <body>
-    
     <header>
         <h1>Selamat Datang di iclik bos!</h1>
     </header>
     <nav>
-        <a onclick="showTab('loby')">Loby</a>
-        <a onclick="showTab('vidio')">Vidio</a>
+        <a onclick="showTab('loby')">Lobi</a>
+        <a onclick="showTab('video')">Video</a>
         <a onclick="showTab('kontak')">Kontak</a>
     </nav>
-    
     <div class="container">
         <div class="content-box" id="loby">
-            <h2>Selamat Datang di Loby</h2>
+            <h2>Selamat Datang di Lobi</h2>
             <p>Silakan pilih menu navigasi untuk melanjutkan.</p>
         </div>
-        
-        <div class="content-box" id="vidio">
-            <h2>Vidio</h2>
+        <div class="content-box" id="video">
+            <h2>Video</h2>
             <p>Masukkan link video untuk ditonton:</p>
             <input type="text" id="videoLink" placeholder="Masukkan link video...">
             <button onclick="loadVideo()">Tonton</button>
-            <iframe id="videoFrame" width="100%" height="400" frameborder="0" allowfullscreen style="display:none;"></iframe>
+            <iframe id="videoFrame" style="display:none;" allowfullscreen></iframe>
             <h3>Video Unggulan:</h3>
-            <iframe src="https://pay4fans.com/videoShare?surl=mPu56a1ZZMSzTqm72zSwUA" width="100%" height="400" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://pay4fans.com/videoShare?surl=mPu56a1ZZMSzTqm72zSwUA" allowfullscreen></iframe>
         </div>
-        
         <div class="content-box" id="kontak">
             <h2>Kontak</h2>
             <p>Email: <a href="mailto:bilariko2@gmail.com">bilariko2@gmail.com</a></p>
         </div>
     </div>
-    
     <footer>
         &copy; 2025 iclik bos - Semua Hak Dilindungi
     </footer>
-    
 </body>
 </html>
