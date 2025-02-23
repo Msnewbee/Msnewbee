@@ -97,19 +97,30 @@
         }
 
         function searchVideos() {
-            let searchTerm = document.getElementById('searchInput').value.trim().toLowerCase(); // Tambahkan .trim() untuk menghapus spasi di awal/akhir
+            let searchTerm = document.getElementById('searchInput').value.trim().toLowerCase(); // Ambil input dan bersihkan spasi
             if (!searchTerm) { // Jika input kosong
                 alert("Silakan masukkan kata kunci pencarian."); // Tampilkan pesan peringatan
                 return; // Hentikan eksekusi fungsi
             }
-            let videos = document.querySelectorAll('#vidio h3');
+
+            let videos = document.querySelectorAll('#vidio .content-box h3'); // Ambil semua judul video
+            let found = false; // Flag untuk menandai apakah ada video yang ditemukan
+
             videos.forEach(video => {
-                if (video.innerText.toLowerCase().includes(searchTerm)) {
-                    video.parentElement.style.display = 'block';
+                let videoTitle = video.innerText.toLowerCase(); // Ambil judul video dan ubah ke lowercase
+                let videoContainer = video.closest('.content-box'); // Temukan container video
+
+                if (videoTitle.includes(searchTerm)) { // Cek apakah judul mengandung kata kunci
+                    videoContainer.style.display = 'block'; // Tampilkan video jika cocok
+                    found = true; // Set flag menjadi true
                 } else {
-                    video.parentElement.style.display = 'none';
+                    videoContainer.style.display = 'none'; // Sembunyikan video jika tidak cocok
                 }
             });
+
+            if (!found) { // Jika tidak ada video yang ditemukan
+                alert("Tidak ada video yang cocok dengan kata kunci '" + searchTerm + "'."); // Tampilkan pesan
+            }
         }
 
         function showTab(tabId) {
