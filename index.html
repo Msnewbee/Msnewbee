@@ -1,36 +1,11 @@
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import { useState } from "react";
-
-function Loby() {
-  return <div className="p-4">Ini adalah halaman Loby.</div>;
-}
-
-function Vidio() {
-  return <div className="p-4">Ini adalah halaman Vidio.</div>;
-}
-
-function Kontak() {
-  return <div className="p-4">Ini adalah halaman Kontak.</div>;
-}
-
-export default function App() {
-  return (
-    <Router>
-      <div className="min-h-screen bg-gray-100 p-4">
-        <nav className="flex space-x-4 bg-white p-2 shadow-md rounded-lg">
-          <Link to="/" className="px-4 py-2 bg-blue-500 text-white rounded">Loby</Link>
-          <Link to="/vidio" className="px-4 py-2 bg-green-500 text-white rounded">Vidio</Link>
-          <Link to="/kontak" className="px-4 py-2 bg-red-500 text-white rounded">Kontak</Link>
-        </nav>
-
-        <div className="mt-4">
-          <Routes>
-            <Route path="/" element={<Loby />} />
-            <Route path="/vidio" element={<Vidio />} />
-            <Route path="/kontak" element={<Kontak />} />
-          </Routes>
-        </div>
-      </div>
-    </Router>
-  );
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MsNewBee</title>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>
