@@ -45,27 +45,51 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             margin-bottom: 20px;
+            display: none;
+        }
+        .content-box.active {
+            display: block;
         }
         video {
             width: 100%;
             border-radius: 8px;
         }
     </style>
+    <script>
+        function showTab(tabId) {
+            let sections = document.querySelectorAll('.content-box');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+        }
+        window.onload = function() {
+            showTab('loby');
+        };
+    </script>
 </head>
 <body>
     <header>
         <h1>Selamat Datang di iclik bos!</h1>
     </header>
     <nav>
-        <a href="#">Loby</a>
-        <a href="#">Vidio</a>
-        <a href="#">Kontak</a>
+        <a onclick="showTab('loby')">Loby</a>
+        <a onclick="showTab('vidio')">Vidio</a>
+        <a onclick="showTab('kontak')">Kontak</a>
     </nav>
     <div class="container">
-        <div class="content-box">
+        <div class="content-box active" id="loby">
+            <h2>Selamat Datang di Loby</h2>
+            <p>Silakan pilih menu navigasi untuk melanjutkan.</p>
+        </div>
+        <div class="content-box" id="vidio">
             <h2>Vidio</h2>
             <p>Video Unggulan:</p>
             <iframe src="https://pay4fans.com/videoShare?surl=mPu56a1ZZMSzTqm72zSwUA" width="100%" height="400" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="content-box" id="kontak">
+            <h2>Kontak</h2>
+            <p>Email: <a href="mailto:bilariko2@gmail.com">bilariko2@gmail.com</a></p>
         </div>
     </div>
     <footer>
