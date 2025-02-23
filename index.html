@@ -8,7 +8,29 @@
     <meta name="robots" content="index, follow">
     <title>iclik bos - Platform Berbagi Video</title>
     <style>
-        body{font-family:Arial,sans-serif;margin:0;padding:0;background-color:#f4f4f4}header,footer{background:#333;color:#fff;padding:20px;text-align:center}nav{background:#444;padding:10px;text-align:center}nav a{color:#fff;text-decoration:none;margin:0 15px;font-size:18px;cursor:pointer}nav a:hover{color:#ffd700}.container{max-width:80%;margin:20px auto;text-align:center}.content-box{background:#fff;padding:20px;box-shadow:0 0 10px rgba(0,0,0,.1);border-radius:8px;margin-bottom:20px;display:none}.content-box.active{display:block}img{max-width:100%;height:auto;display:block;margin:auto}button{padding:10px 20px;margin:5px;font-size:16px;cursor:pointer;border:none;border-radius:5px;background-color:#f0f0f0;transition:background-color .3s ease,transform .2s ease}button:hover{background-color:#ddd}button:active{transform:scale(0.95)}button:disabled{background-color:#ccc;cursor:not-allowed}.like-btn{color:green}.dislike-btn{color:red}@media (max-width:600px){nav a{display:block;margin:10px 0}.container{max-width:100%}}
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
+        header, footer { background: #333; color: #fff; padding: 20px; text-align: center; }
+        nav { background: #444; padding: 10px; text-align: center; }
+        nav a { color: #fff; text-decoration: none; margin: 0 15px; font-size: 18px; cursor: pointer; }
+        nav a:hover { color: #ffd700; }
+        .container { max-width: 80%; margin: 20px auto; text-align: center; }
+        .content-box { background: #fff; padding: 20px; box-shadow: 0 0 10px rgba(0,0,0,.1); border-radius: 8px; margin-bottom: 20px; display: none; }
+        .content-box.active { display: block; }
+        img { max-width: 100%; height: auto; display: block; margin: auto; }
+        button { padding: 10px 20px; margin: 5px; font-size: 16px; cursor: pointer; border: none; border-radius: 5px; background-color: #f0f0f0; transition: background-color .3s ease, transform .2s ease; }
+        button:hover { background-color: #ddd; }
+        button:active { transform: scale(0.95); }
+        button:disabled { background-color: #ccc; cursor: not-allowed; }
+        .like-btn { color: green; }
+        .dislike-btn { color: red; }
+        @media (max-width: 600px) {
+            nav a { display: block; margin: 10px 0; }
+            .container { max-width: 100%; }
+        }
+        /* Styling untuk age verification */
+        #ageVerification { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); color: white; text-align: center; padding-top: 20%; z-index: 1000; }
+        #ageVerification h2 { font-size: 24px; margin-bottom: 20px; }
+        #ageVerification button { margin: 10px; padding: 10px 20px; font-size: 18px; cursor: pointer; }
     </style>
     <script>
         const scriptUrl = 'URL_GOOGLE_APPS_SCRIPT'; // Ganti dengan URL Google Apps Script Anda
@@ -98,11 +120,20 @@
             document.getElementById(tabId).classList.add('active');
         }
 
+        function verifyAge(isAdult) {
+            if (isAdult) {
+                document.getElementById('ageVerification').style.display = 'none';
+            } else {
+                window.location.href = 'https://www.example.com/safe-content'; // Ganti dengan URL yang aman
+            }
+        }
+
         window.onload = function() {
             showTab('loby');
             loadReactions('video1'); // Muat Like dan Dislike untuk video1
             loadReactions('video2'); // Muat Like dan Dislike untuk video2
             loadReactions('video3'); // Muat Like dan Dislike untuk video3
+            document.getElementById('ageVerification').style.display = 'block'; // Tampilkan verifikasi usia saat halaman dimuat
         };
     </script>
     <!-- Google Analytics -->
@@ -115,6 +146,18 @@
     </script>
 </head>
 <body>
+    <!-- Peringatan Konten Dewasa -->
+    <div style="background-color: #ffcccb; padding: 10px; text-align: center; margin-bottom: 20px;">
+        <strong>Peringatan:</strong> Situs ini mengandung konten dewasa. Hanya untuk usia 18+.
+    </div>
+
+    <!-- Verifikasi Usia -->
+    <div id="ageVerification">
+        <h2>Anda harus berusia 18 tahun atau lebih untuk mengakses situs ini.</h2>
+        <button onclick="verifyAge(true)">Saya Berusia 18+</button>
+        <button onclick="verifyAge(false)">Saya Masih di Bawah 18</button>
+    </div>
+
     <header>
         <h1>Selamat Datang di iclik bos!</h1>
     </header>
@@ -173,7 +216,7 @@
         </div>
     </div>
     <footer>
-        &copy; 2025 iclik bos - Semua Hak Dilindungi
+        &copy; 2025 iclik bos - Semua Hak Dilindungi | <a href="/privacy-policy">Kebijakan Privasi</a> | <a href="/terms-of-service">Syarat Penggunaan</a>
     </footer>
 </body>
 </html>
