@@ -80,20 +80,18 @@
         }
 
         /* Dark Mode */
-        @media (prefers-color-scheme: dark) {
-            body {
-                background-color: #121212;
-                color: white;
-            }
-            header, footer {
-                background-color: #333;
-            }
-            nav {
-                background-color: #444;
-            }
-            .container {
-                background-color: #222;
-            }
+        body.dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+        header.dark-mode, footer.dark-mode {
+            background-color: #333;
+        }
+        nav.dark-mode {
+            background-color: #444;
+        }
+        .container.dark-mode {
+            background-color: #222;
         }
 
         /* Dark Mode Toggle Button */
@@ -123,20 +121,25 @@
             new google.translate.TranslateElement({pageLanguage: 'id'}, 'google_translate_element');
         }
 
+        // Fungsi untuk toggle dark mode
         function toggleDarkMode() {
+            const body = document.body;
             const currentMode = localStorage.getItem('mode');
+
             if (currentMode === 'dark') {
-                document.body.classList.remove('dark-mode');
+                body.classList.remove('dark-mode');
                 localStorage.setItem('mode', 'light');
             } else {
-                document.body.classList.add('dark-mode');
+                body.classList.add('dark-mode');
                 localStorage.setItem('mode', 'dark');
             }
         }
 
+        // Mengecek mode saat pertama kali halaman dimuat
         window.onload = function() {
             showTab('loby');
-            if (localStorage.getItem('mode') === 'dark') {
+            const savedMode = localStorage.getItem('mode');
+            if (savedMode === 'dark') {
                 document.body.classList.add('dark-mode');
             }
         };
@@ -184,14 +187,6 @@
             <h3>Dukung Kami</h3>
             <p>Jika Anda ingin mendukung perkembangan situs ini, silakan berdonasi melalui link berikut:</p>
             <p><a href="https://trakteer.id/bilbil13" target="_blank">Klik di sini untuk berdonasi</a></p>
-        </div>
-        <div class="content-box" id="feedback">
-            <h2>Berikan Feedback Anda</h2>
-            <form action="submit_feedback.php" method="post">
-                <label for="feedback">Masukkan feedback Anda:</label><br>
-                <textarea id="feedback" name="feedback" rows="4" cols="50"></textarea><br>
-                <input type="submit" value="Kirim Feedback">
-            </form>
         </div>
     </div>
     <footer>
