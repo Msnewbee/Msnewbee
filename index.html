@@ -3,13 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Selamat datang di iclik bos - platform terbaik untuk berbagi video dan informasi.">
-    <meta name="keywords" content="video, berbagi video, iclik bos, streaming, hiburan">
-    <meta name="robots" content="index, follow">
-    <title>iclik bos - Platform Berbagi Video</title>
-    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
-    <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
-    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <title>Tombol Like dan Dislike</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -60,29 +54,51 @@
             display: block;
             margin: auto;
         }
-        #google_translate_element {
-            text-align: center;
-            margin-top: 10px;
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+            transition: background-color 0.3s ease;
         }
-        @media (max-width: 600px) {
-            nav a {
-                display: block;
-                margin: 10px 0;
-            }
-            .container {
-                max-width: 100%;
-                padding: 10px;
-            }
-            #searchInput {
-                width: 100%;
-            }
-            img {
-                width: 100%;
-                height: auto;
-            }
+        button:hover {
+            background-color: #ddd;
+        }
+        button:active {
+            background-color: #ccc;
         }
     </style>
     <script>
+        const scriptUrl = 'https://script.google.com/macros/s/AKfycby3amBTE2a0EO-nctInqs7JB7x_1_Ia5ao2EEFWe0tY_siOvew3yp4VOQI62PsA8arW/exec';
+
+        async function likeVideo(videoId) {
+            const response = await fetch(scriptUrl, {
+                method: 'POST',
+                body: JSON.stringify({ videoId: videoId, action: 'like' })
+            });
+            const data = await response.json();
+            document.getElementById(`likeCount_${videoId}`).innerText = data.likes;
+        }
+
+        async function dislikeVideo(videoId) {
+            const response = await fetch(scriptUrl, {
+                method: 'POST',
+                body: JSON.stringify({ videoId: videoId, action: 'dislike' })
+            });
+            const data = await response.json();
+            document.getElementById(`dislikeCount_${videoId}`).innerText = data.dislikes;
+        }
+
+        async function loadLikes(videoId) {
+            const response = await fetch(`${scriptUrl}?videoId=${videoId}`);
+            const data = await response.json();
+            document.getElementById(`likeCount_${videoId}`).innerText = data.likes;
+            document.getElementById(`dislikeCount_${videoId}`).innerText = data.dislikes;
+        }
+
         function showTab(tabId) {
             let sections = document.querySelectorAll('.content-box');
             sections.forEach(section => {
@@ -90,44 +106,16 @@
             });
             document.getElementById(tabId).classList.add('active');
         }
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({pageLanguage: 'id'}, 'google_translate_element');
-        }
-        function searchVideos() {
-            let searchTerm = document.getElementById('searchInput').value.toLowerCase();
-            let videos = document.querySelectorAll('#vidio h3');
-            videos.forEach(video => {
-                if (video.innerText.toLowerCase().includes(searchTerm)) {
-                    video.parentElement.style.display = 'block';
-                } else {
-                    video.parentElement.style.display = 'none';
-                }
-            });
-        }
-        function likeVideo(videoId) {
-            let likeCount = document.getElementById(`likeCount_${videoId}`);
-            likeCount.innerText = parseInt(likeCount.innerText) + 1;
-        }
-        function dislikeVideo(videoId) {
-            let dislikeCount = document.getElementById(`dislikeCount_${videoId}`);
-            dislikeCount.innerText = parseInt(dislikeCount.innerText) + 1;
-        }
+
         window.onload = function() {
             showTab('loby');
+            loadLikes('video1'); // Ganti 'video1' dengan ID video yang sesuai
         };
-    </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'UA-XXXXXX');
     </script>
 </head>
 <body>
     <header>
         <h1>Selamat Datang di iclik bos!</h1>
-        <div id="google_translate_element"></div>
     </header>
     <nav>
         <a onclick="showTab('loby')">Loby</a>
@@ -135,8 +123,6 @@
         <a onclick="showTab('kontak')">Kontak</a>
     </nav>
     <div class="container">
-        <input type="text" id="searchInput" placeholder="Cari video..." style="padding: 10px; width: 300px; margin: 20px;">
-        <button onclick="searchVideos()" style="padding: 10px; cursor: pointer;">Cari</button>
         <div class="content-box active" id="loby">
             <h2>Selamat Datang di Loby</h2>
             <p>Silakan pilih menu navigasi untuk melanjutkan.</p>
