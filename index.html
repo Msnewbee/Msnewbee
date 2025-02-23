@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -80,7 +80,7 @@
                 body: JSON.stringify({ videoId: videoId, action: 'like' })
             });
             const data = await response.json();
-            document.getElementById(likeCount_${videoId}).innerText = data.likes;
+            document.getElementById(`likeCount_${videoId}`).innerText = data.likes;
         }
 
         async function dislikeVideo(videoId) {
@@ -89,14 +89,14 @@
                 body: JSON.stringify({ videoId: videoId, action: 'dislike' })
             });
             const data = await response.json();
-            document.getElementById(dislikeCount_${videoId}).innerText = data.dislikes;
+            document.getElementById(`dislikeCount_${videoId}`).innerText = data.dislikes;
         }
 
         async function loadLikes(videoId) {
-            const response = await fetch(${scriptUrl}?videoId=${videoId});
+            const response = await fetch(`${scriptUrl}?videoId=${videoId}`);
             const data = await response.json();
-            document.getElementById(likeCount_${videoId}).innerText = data.likes;
-            document.getElementById(dislikeCount_${videoId}).innerText = data.dislikes;
+            document.getElementById(`likeCount_${videoId}`).innerText = data.likes;
+            document.getElementById(`dislikeCount_${videoId}`).innerText = data.dislikes;
         }
 
         function showTab(tabId) {
