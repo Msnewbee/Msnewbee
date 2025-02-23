@@ -3,73 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Platform berbagi video terbaik untuk hiburan dan informasi.">
+    <meta name="keywords" content="video, berbagi video, iclik bos, streaming, hiburan">
+    <meta name="robots" content="index, follow">
     <title>iclik bos - Platform Berbagi Video</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        header, footer {
-            background: #333;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        nav {
-            background: #444;
-            padding: 10px;
-            text-align: center;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 18px;
-            cursor: pointer;
-        }
-        nav a:hover {
-            color: #ffd700;
-        }
-        .container {
-            max-width: 80%;
-            margin: 20px auto;
-            text-align: center;
-        }
-        .content-box {
-            background: white;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            margin-bottom: 20px;
-            display: none;
-        }
-        .content-box.active {
-            display: block;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: auto;
-        }
-        button {
-            padding: 10px 20px;
-            margin: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            border: none;
-            border-radius: 5px;
-            background-color: #f0f0f0;
-            transition: background-color 0.3s ease;
-        }
-        button:hover {
-            background-color: #ddd;
-        }
-        button:active {
-            background-color: #ccc;
-        }
+        body{font-family:Arial,sans-serif;margin:0;padding:0;background-color:#f4f4f4}header,footer{background:#333;color:#fff;padding:20px;text-align:center}nav{background:#444;padding:10px;text-align:center}nav a{color:#fff;text-decoration:none;margin:0 15px;font-size:18px;cursor:pointer}nav a:hover{color:#ffd700}.container{max-width:80%;margin:20px auto;text-align:center}.content-box{background:#fff;padding:20px;box-shadow:0 0 10px rgba(0,0,0,.1);border-radius:8px;margin-bottom:20px;display:none}.content-box.active{display:block}img{max-width:100%;height:auto;display:block;margin:auto}button{padding:10px 20px;margin:5px;font-size:16px;cursor:pointer;border:none;border-radius:5px;background-color:#f0f0f0;transition:background-color .3s ease}button:hover{background-color:#ddd}button:active{background-color:#ccc}@media (max-width:600px){nav a{display:block;margin:10px 0}.container{max-width:100%}}
     </style>
     <script>
         const scriptUrl = 'URL_GOOGLE_APPS_SCRIPT'; // Ganti dengan URL Google Apps Script Anda
@@ -99,6 +38,18 @@
             document.getElementById(`dislikeCount_${videoId}`).innerText = data.dislikes;
         }
 
+        function searchVideos() {
+            let searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            let videos = document.querySelectorAll('#vidio h3');
+            videos.forEach(video => {
+                if (video.innerText.toLowerCase().includes(searchTerm)) {
+                    video.parentElement.style.display = 'block';
+                } else {
+                    video.parentElement.style.display = 'none';
+                }
+            });
+        }
+
         function showTab(tabId) {
             let sections = document.querySelectorAll('.content-box');
             sections.forEach(section => {
@@ -109,10 +60,18 @@
 
         window.onload = function() {
             showTab('loby');
-            loadLikes('video1'); // Muat Like dan Dislike untuk video1
-            loadLikes('video2'); // Muat Like dan Dislike untuk video2
-            loadLikes('video3'); // Muat Like dan Dislike untuk video3
+            loadLikes('video1');
+            loadLikes('video2');
+            loadLikes('video3');
         };
+    </script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-XXXXXX'); // Ganti dengan ID Google Analytics Anda
     </script>
 </head>
 <body>
@@ -125,6 +84,8 @@
         <a onclick="showTab('kontak')">Kontak</a>
     </nav>
     <div class="container">
+        <input type="text" id="searchInput" placeholder="Cari video..." style="padding:10px;width:300px;margin:20px;">
+        <button onclick="searchVideos()" style="padding:10px;cursor:pointer">Cari</button>
         <div class="content-box active" id="loby">
             <h2>Selamat Datang di Loby</h2>
             <p>Silakan pilih menu navigasi untuk melanjutkan.</p>
