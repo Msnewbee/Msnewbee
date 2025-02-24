@@ -3,143 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Platform berbagi video terbaik untuk hiburan dan informasi.">
+    <meta name="keywords" content="video, berbagi video, iclik bos, streaming, hiburan">
+    <meta name="robots" content="index, follow">
     <title>iclik bos - Platform Berbagi Video</title>
     <style>
-        /* Style yang digunakan untuk halaman */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        header, footer {
-            background: #333;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-        nav {
-            background: #444;
-            padding: 10px;
-            text-align: center;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 18px;
-            cursor: pointer;
-        }
-        nav a:hover {
-            color: #ffd700;
-        }
-        .container {
-            max-width: 80%;
-            margin: 20px auto;
-            text-align: center;
-        }
-        .content-box {
-            background: #fff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, .1);
-            border-radius: 8px;
-            margin-bottom: 20px;
-            display: none;
-        }
-        .content-box.active {
-            display: block;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: auto;
-        }
-        button {
-            padding: 10px 20px;
-            margin: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            border: none;
-            border-radius: 5px;
-            background-color: #f0f0f0;
-            transition: background-color .3s ease, transform .2s ease;
-        }
-        button:hover {
-            background-color: #ddd;
-        }
-        button:active {
-            transform: scale(0.95);
-        }
-        .like-btn {
-            color: green;
-        }
-        .dislike-btn {
-            color: red;
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
+        header, footer { background: #333; color: #fff; padding: 20px; text-align: center; }
+        nav { background: #444; padding: 10px; text-align: center; }
+        nav a { color: #fff; text-decoration: none; margin: 0 15px; font-size: 18px; cursor: pointer; }
+        nav a:hover { color: #ffd700; }
+        .container { max-width: 80%; margin: 20px auto; text-align: center; }
+        .content-box { background: #fff; padding: 20px; box-shadow: 0 0 10px rgba(0,0,0,.1); border-radius: 8px; margin-bottom: 20px; display: none; }
+        .content-box.active { display: block; }
+        img { max-width: 100%; height: auto; display: block; margin: auto; }
+        button { padding: 10px 20px; margin: 5px; font-size: 16px; cursor: pointer; border: none; border-radius: 5px; background-color: #f0f0f0; transition: background-color .3s ease, transform .2s ease; }
+        button:hover { background-color: #ddd; }
+        button:active { transform: scale(0.95); }
+        button:disabled { background-color: #ccc; cursor: not-allowed; }
+        .like-btn { color: green; }
+        .dislike-btn { color: red; }
+        @media (max-width: 600px) {
+            nav a { display: block; margin: 10px 0; }
+            .container { max-width: 100%; }
         }
     </style>
-</head>
-<body>
-    <header>
-        <h1>Selamat Datang di iclik bos!</h1>
-    </header>
-    <nav>
-        <a href="#" onclick="showTab('vidio')">Vidio</a>
-        <a href="#" onclick="showTab('kontak')">Kontak</a>
-    </nav>
-
-    <div class="container">
-        <div class="content-box active" id="vidio">
-            <h2>Vidio</h2>
-            <p>Video Unggulan:</p>
-            
-            <!-- Video 1 -->
-            <h3>Video 1: Masturbasi dengan Jari</h3>
-            <a href="https://pay4fans.com/videoShare?surl=mPu56a1ZZMSzTqm72zSwUA" target="_blank">
-                <img src="https://via.placeholder.com/300x200?text=Video+1" alt="Thumbnail Video 1">
-            </a>
-            <div>
-                <button id="likeBtn_video1" class="like-btn" onclick="handleReaction('video1', 'like')">👍 <span id="likeCount_video1">0</span></button>
-                <button id="dislikeBtn_video1" class="dislike-btn" onclick="handleReaction('video1', 'dislike')">👎 <span id="dislikeCount_video1">0</span></button>
-            </div>
-
-            <!-- Video 2 -->
-            <h3>Video 2: My sister was caught masturbating in the bathroom</h3>
-            <a href="https://pay4fans.com/videoShare?surl=dSw8lz3FlecQh1IwweeAoQ" target="_blank">
-                <img src="https://via.placeholder.com/300x200?text=Video+2" alt="Thumbnail Video 2">
-            </a>
-            <div>
-                <button id="likeBtn_video2" class="like-btn" onclick="handleReaction('video2', 'like')">👍 <span id="likeCount_video2">0</span></button>
-                <button id="dislikeBtn_video2" class="dislike-btn" onclick="handleReaction('video2', 'dislike')">👎 <span id="dislikeCount_video2">0</span></button>
-            </div>
-
-            <!-- Video 3 -->
-            <h3>Video 3: Langkah Kaka Membantu Adiknya Cum</h3>
-            <a href="https://pay4fans.com/videoShare?surl=mWmSPO9rFQ4WJUSTYFZH5A" target="_blank">
-                <img src="https://via.placeholder.com/300x200?text=Video+3" alt="Thumbnail Video 3">
-            </a>
-            <div>
-                <button id="likeBtn_video3" class="like-btn" onclick="handleReaction('video3', 'like')">👍 <span id="likeCount_video3">0</span></button>
-                <button id="dislikeBtn_video3" class="dislike-btn" onclick="handleReaction('video3', 'dislike')">👎 <span id="dislikeCount_video3">0</span></button>
-            </div>
-        </div>
-
-        <div class="content-box" id="kontak">
-            <h2>Kontak</h2>
-            <p>Email: <a href="mailto:email@example.com">email@example.com</a></p>
-        </div>
-    </div>
-    
-    <footer>
-        &copy; 2025 iclik bos - Semua Hak Dilindungi
-    </footer>
-
     <script>
         const scriptUrl = 'https://script.google.com/macros/s/AKfycbwGEtWwQ4j-lgh5_V9lyfReTQE5SLCYW9IiVo6cDyAIcSM4q0azFnwh9O2SLfC351kGpw/exec';
-        let isProcessing = false;
+
+        let isProcessing = false; // Flag untuk mencegah multiple clicks
 
         async function handleReaction(videoId, action) {
-            if (isProcessing) return;
+            if (isProcessing) return; // Jika sedang proses, hentikan
             isProcessing = true;
 
             const likeBtn = document.getElementById(`likeBtn_${videoId}`);
@@ -147,6 +42,7 @@
             const likeCount = document.getElementById(`likeCount_${videoId}`);
             const dislikeCount = document.getElementById(`dislikeCount_${videoId}`);
 
+            // Nonaktifkan tombol sementara
             likeBtn.disabled = true;
             dislikeBtn.disabled = true;
 
@@ -156,10 +52,13 @@
                     body: JSON.stringify({ videoId: videoId, action: action })
                 });
                 const data = await response.json();
+
+                // Update tampilan
                 likeCount.innerText = data.likes;
                 dislikeCount.innerText = data.dislikes;
             } catch (error) {
                 console.error('Error:', error);
+                // Fallback ke localStorage jika server error
                 const currentLikes = parseInt(localStorage.getItem(`likes_${videoId}`)) || 0;
                 const currentDislikes = parseInt(localStorage.getItem(`dislikes_${videoId}`)) || 0;
 
@@ -171,6 +70,7 @@
                     dislikeCount.innerText = currentDislikes + 1;
                 }
             } finally {
+                // Aktifkan kembali tombol
                 likeBtn.disabled = false;
                 dislikeBtn.disabled = false;
                 isProcessing = false;
@@ -181,6 +81,7 @@
             const likeCount = document.getElementById(`likeCount_${videoId}`);
             const dislikeCount = document.getElementById(`dislikeCount_${videoId}`);
 
+            // Coba ambil data dari server
             fetch(`${scriptUrl}?videoId=${videoId}`)
                 .then(response => response.json())
                 .then(data => {
@@ -189,35 +90,34 @@
                 })
                 .catch(error => {
                     console.error('Error:', error);
+                    // Fallback ke localStorage jika server error
                     likeCount.innerText = parseInt(localStorage.getItem(`likes_${videoId}`)) || 0;
                     dislikeCount.innerText = parseInt(localStorage.getItem(`dislikes_${videoId}`)) || 0;
                 });
         }
 
         function searchVideos() {
-            let searchTerm = document.getElementById('searchInput').value.trim().toLowerCase();
-            if (!searchTerm) {
-                alert("Silakan masukkan kata kunci pencarian.");
-                return;
+            let searchTerm = document.getElementById('searchInput').value.trim().toLowerCase(); // Ambil input dan bersihkan spasi
+            if (!searchTerm) { // Jika input kosong
+                alert("Silakan masukkan kata kunci pencarian."); // Tampilkan pesan peringatan
+                return; // Hentikan eksekusi fungsi
             }
 
-            let videos = document.querySelectorAll('#vidio .content-box h3');
-            let found = false;
+            let videos = document.querySelectorAll('#vidio .content-box'); // Ambil semua container video
+            let found = false; // Flag untuk menandai apakah ada video yang ditemukan
 
             videos.forEach(video => {
-                let videoTitle = video.innerText.toLowerCase();
-                let videoContainer = video.closest('.content-box');
-
-                if (videoTitle.includes(searchTerm)) {
-                    videoContainer.style.display = 'block';
-                    found = true;
+                let videoTitle = video.querySelector('h3').innerText.toLowerCase(); // Ambil judul video dan ubah ke lowercase
+                if (videoTitle.includes(searchTerm)) { // Cek apakah judul mengandung kata kunci
+                    video.style.display = 'block'; // Tampilkan video jika cocok
+                    found = true; // Set flag menjadi true
                 } else {
-                    videoContainer.style.display = 'none';
+                    video.style.display = 'none'; // Sembunyikan video jika tidak cocok
                 }
             });
 
-            if (!found) {
-                alert("Tidak ada video yang cocok dengan kata kunci '" + searchTerm + "'.");
+            if (!found) { // Jika tidak ada video yang ditemukan
+                alert("Tidak ada video yang cocok dengan kata kunci '" + searchTerm + "'."); // Tampilkan pesan
             }
         }
 
@@ -230,11 +130,73 @@
         }
 
         window.onload = function() {
-            showTab('vidio');
-            loadReactions('video1');
-            loadReactions('video2');
-            loadReactions('video3');
+            showTab('loby');
+            loadReactions('video1'); // Muat Like dan Dislike untuk video1
+            loadReactions('video2'); // Muat Like dan Dislike untuk video2
+            loadReactions('video3'); // Muat Like dan Dislike untuk video3
         };
     </script>
+</head>
+<body>
+    <header>
+        <h1>Selamat Datang di iclik bos!</h1>
+    </header>
+    <nav>
+        <a onclick="showTab('loby')">Loby</a>
+        <a onclick="showTab('vidio')">Vidio</a>
+        <a onclick="showTab('kontak')">Kontak</a>
+    </nav>
+    <div class="container">
+        <input type="text" id="searchInput" placeholder="Cari video..." style="padding:10px;width:300px;margin:20px;">
+        <button onclick="searchVideos()" style="padding:10px;cursor:pointer">Cari</button>
+        <div class="content-box active" id="loby">
+            <h2>Selamat Datang di Loby</h2>
+            <p>Silakan pilih menu navigasi untuk melanjutkan.</p>
+        </div>
+        <div class="content-box" id="vidio">
+            <h2>Vidio</h2>
+            <p>Video Unggulan:</p>
+            
+            <!-- Video 1 -->
+            <h3>Masturbasi dengan Jari</h3>
+            <a href="https://pay4fans.com/videoShare?surl=mPu56a1ZZMSzTqm72zSwUA" target="_blank">
+                <img src="https://dm-data.terabox.com/thumbnail/ce3432897c2979ebe3b1c983865c21a5?fid=81366251617206-250528-40095180408914&time=1740279600&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-dDyo3KzvAOYyFfD%2BPhffOJK%2BBLc%3D&expires=10y&chkv=0&chkbd=0&chkpc=&dp-logid=2480022543831092896&dp-callid=0&size=c850_u580&quality=100&vuk=81366251617206&ft=video" alt="Thumbnail Video">
+            </a>
+            <div>
+                <button id="likeBtn_video1" class="like-btn" onclick="handleReaction('video1', 'like')">👍 <span id="likeCount_video1">0</span></button>
+                <button id="dislikeBtn_video1" class="dislike-btn" onclick="handleReaction('video1', 'dislike')">👎 <span id="dislikeCount_video1">0</span></button>
+            </div>
+
+            <!-- Video 2 -->
+            <h3>My sister was caught masturbating in the bathroom</h3>
+            <a href="https://pay4fans.com/videoShare?surl=dSw8lz3FlecQh1IwweeAoQ" target="_blank">
+                <img src="https://dm-data.terabox.com/thumbnail/c5ec94a6472bdf55629c6c2aa8aa559a?fid=81366251617206-250528-1017568112374262&time=1740322800&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-YDcG9Ps%2FePW51Oh%2BBrRykDhlA5U%3D&expires=10y&chkv=0&chkbd=0&chkpc=&dp-logid=99178421667346441&dp-callid=0&size=c850_u580&quality=100&vuk=81366251617206&ft=video" alt="Thumbnail Video">
+            </a>
+            <div>
+                <button id="likeBtn_video2" class="like-btn" onclick="handleReaction('video2', 'like')">👍 <span id="likeCount_video2">0</span></button>
+                <button id="dislikeBtn_video2" class="dislike-btn" onclick="handleReaction('video2', 'dislike')">👎 <span id="dislikeCount_video2">0</span></button>
+            </div>
+
+            <!-- Video 3 -->
+            <h3>Langkah Kaka Membantu Adiknya Cum</h3>
+            <a href="https://pay4fans.com/videoShare?surl=mWmSPO9rFQ4WJUSTYFZH5A" target="_blank">
+                <img src="https://dm-data.terabox.com/thumbnail/363529971cf185c95da8170a965cd708?fid=81366251617206-250528-843976327435458&time=1740330000&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-cSOwIDU4T3mQ0wLOn%2BB4WJNgrbw%3D&expires=10y&chkv=0&chkbd=0&chkpc=&dp-logid=100874976340525452&dp-callid=0&size=c850_u580&quality=100&vuk=81366251617206&ft=video" alt="Thumbnail Video">
+            </a>
+            <div>
+                <button id="likeBtn_video3" class="like-btn" onclick="handleReaction('video3', 'like')">👍 <span id="likeCount_video3">0</span></button>
+                <button id="dislikeBtn_video3" class="dislike-btn" onclick="handleReaction('video3', 'dislike')">👎 <span id="dislikeCount_video3">0</span></button>
+            </div>
+        </div>
+        <div class="content-box" id="kontak">
+            <h2>Kontak</h2>
+            <p>Email: <a href="mailto:bilariko2@gmail.com">bilariko2@gmail.com</a></p>
+            <h3>Dukung Kami</h3>
+            <p>Jika Anda ingin mendukung perkembangan situs ini, silakan berdonasi melalui link berikut:</p>
+            <p><a href="https://trakteer.id/bilbil13" target="_blank">Klik di sini untuk berdonasi</a></p>
+        </div>
+    </div>
+    <footer>
+        &copy; 2025 iclik bos - Semua Hak Dilindungi
+    </footer>
 </body>
 </html>
