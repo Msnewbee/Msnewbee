@@ -66,6 +66,7 @@ function searchVideos() {
     let searchTerm = document.getElementById('searchInput').value.trim().toLowerCase();
     if (!searchTerm) {
         alert("Silakan masukkan kata kunci pencarian.");
+        showAllVideos();
         return;
     }
 
@@ -73,18 +74,32 @@ function searchVideos() {
     let found = false;
 
     videos.forEach(video => {
-        let videoTitle = video.querySelector('h3').innerText.toLowerCase();
-        if (videoTitle.includes(searchTerm)) {
+        let videoTitle = video.querySelector('h3');
+        let titleText = videoTitle.innerText.toLowerCase();
+        if (titleText.includes(searchTerm)) {
             video.style.display = 'block';
+            videoTitle.innerHTML = titleText.replace(
+                new RegExp(searchTerm, 'gi'),
+                match => `<span class="highlight">${match}</span>` // Highlight kata kunci
+            );
             found = true;
         } else {
             video.style.display = 'none';
+            videoTitle.innerHTML = titleText; // Reset highlight
         }
     });
 
     if (!found) {
         alert("Tidak ada video yang cocok dengan kata kunci '" + searchTerm + "'.");
+        showAllVideos();
     }
+}
+
+function showAllVideos() {
+    let videos = document.querySelectorAll('#vidio .content-box');
+    videos.forEach(video => {
+        video.style.display = 'block'; // Tampilkan semua video
+    });
 }
 
 function showTab(tabId) {
@@ -96,7 +111,7 @@ function showTab(tabId) {
 }
 
 window.onload = function() {
-    showTab('vidio'); // Tampilkan tab Vidio secara default
+    showTab('loby');
     loadReactions('video1');
     loadReactions('video2');
     loadReactions('video3');
