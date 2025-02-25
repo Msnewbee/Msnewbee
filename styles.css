@@ -88,6 +88,11 @@ button:disabled {
     color: red;
 }
 
+.highlight {
+    background-color: yellow; /* Warna latar belakang untuk highlight */
+    font-weight: bold; /* Tebalkan teks yang cocok */
+}
+
 @media (max-width: 600px) {
     nav a {
         display: block;
