@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Stream Anime</title>
+    <link rel="stylesheet" href="assets/style.css">
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1357574968133580" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="back-button">← Kembali</a>
+        <h1 id="anime-title">Memuat...</h1>
+    </header>
+
+    <main class="anime-container">
+        <div class="anime-info">
+            <img id="anime-poster" src="default-poster.jpg" alt="Poster Anime">
+            <div class="anime-meta">
+                <p><strong>Judul Jepang:</strong> <span id="anime-jtitle">-</span></p>
+                <p><strong>Skor:</strong> <span id="anime-score">-</span></p>
+                <p><strong>Produser:</strong> <span id="anime-producers">-</span></p>
+                <p><strong>Studio:</strong> <span id="anime-studio">-</span></p>
+                <p><strong>Tipe:</strong> <span id="anime-type">-</span></p>
+                <p><strong>Status:</strong> <span id="anime-status">-</span></p>
+                <p><strong>Durasi:</strong> <span id="anime-duration">-</span></p>
+                <p><strong>Tanggal Rilis:</strong> <span id="anime-release">-</span></p>
+                <p><strong>Genre:</strong> <span id="anime-genre">-</span></p>
+            </div>
+        </div>
+
+        <section class="player-section">
+            <h2>Pemutar</h2>
+            <div class="embed-container">
+              <iframe id="anime-embed" frameborder="0" allowfullscreen></iframe>
+            </div>
+
+            <button id="switch-server">Ganti Server</button>
+            
+
+            <div class="episode-navigation">
+                <button id="prev-episode" class="episode-nav-btn">← Sebelumnya</button>
+                <button id="next-episode" class="episode-nav-btn">Berikutnya →</button>
+            </div>
+            <button id="fullscreen-btn" class="fullscreen-button">Mode Layar Penuh</button>
+        </section>
+
+        <p>
+            <a id="download-link" href="#" download>Download Episode</a>
+        </p>
+
+        <section class="episode-section">
+            <h2>Daftar Episode</h2>
+            <div class="episode-list" id="episode-list">
+                <p>Sedang memuat daftar episode...</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Sticky Footer Ads -->
+    <div class="sticky-ads" id="stickyAds">
+        <button class="close-ads" onclick="closeAds()">Tutup Iklan [X]</button>
+        <div>
+            <ins class="adsbygoogle"
+                style="display:inline-block;width:728px;height:90px"
+                data-ad-client="ca-pub-1357574968133580"
+                data-ad-slot="5544332211"></ins>
+        </div>
+    </div>
+
+    <script src="assets/anime.js" type="module"></script>
+    <script>
+        function closeAds() {
+            document.getElementById("stickyAds").style.display = "none";
+        }
+    </script>
+</body>
+</html>

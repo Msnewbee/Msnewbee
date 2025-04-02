@@ -1,0 +1,551 @@
+/* Reset dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #111;
+    color: #fff;
+}
+
+/* Header Styling */
+header {
+    background-color: #0d0d0d;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo */
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+header .logo h1 {
+    font-size: 24px;
+    color: #00bcd4;
+}
+
+/* Navigasi */
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #00bcd4;
+}
+
+/* Search Bar */
+.search-box {
+    display: flex;
+    align-items: center;
+    background: #222;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.search-box input {
+    background: none;
+    border: none;
+    color: #fff;
+    padding: 5px;
+    outline: none;
+}
+
+.search-box button {
+    background: #00bcd4;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    color: #fff;
+    border-radius: 3px;
+}
+
+.search-box button:hover {
+    background: #008c9e;
+}
+
+/* =========[ Film Page Styles ]========= */
+
+/* Film Page Container */
+.film-page-container {
+    margin: 20px auto;
+    padding: 20px;
+    background: #2b2b2b;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Age Verification Section */
+#age-verification {
+    text-align: center;
+    background: #3a3a3a;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#age-verification input {
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #999;
+    background: #2a2a2a;
+    color: #fff;
+}
+
+#verify-button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#verify-button:hover {
+    background: #0056b3;
+}
+
+/* Restricted Content */
+#restricted-content {
+    display: none;
+    padding: 20px;
+    background: #1a1a1a;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Film Items */
+.film-item {
+    background: #444;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.film-item h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.film-item iframe {
+    width: 100%;
+    height: 400px;
+    border-radius: 8px;
+    border: none;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .film-item iframe {
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .film-item iframe {
+        height: 250px;
+    }
+}
+
+/* Anime Grid */
+.anime-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+    padding: 10px;
+}
+
+@media screen and (max-width: 480px) {
+    .anime-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .anime-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Anime Card */
+.anime-card {
+    background-color: #2b2b2b;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: transform 0.2s ease;
+}
+
+.anime-card:hover {
+    transform: scale(1.03);
+}
+
+.anime-card img {
+    width: 100%;
+    height: 270px;
+    object-fit: cover;
+    display: block;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card-content h3 {
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.card-content p {
+    font-size: 14px;
+    opacity: 0.9;
+    margin-bottom: 4px;
+}
+
+/* Search and Sort Input Fields */
+#search-anime, #sort-anime {
+    padding: 10px;
+    margin: 10px 5px 20px 0;
+    width: 200px;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+#search-anime:focus, #sort-anime:focus {
+    border: 2px solid #6c63ff;
+    box-shadow: 0 0 8px rgba(108, 99, 255, 0.5);
+}
+
+/* Anime Container */
+.anime-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.anime-info {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+#anime-poster {
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    object-fit: cover;
+    height: 450px;
+}
+
+.anime-meta {
+    flex: 1;
+    background: #2a2a2a;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.anime-meta p {
+    margin: 10px 0;
+    font-size: 1.1em;
+    line-height: 1.5;
+}
+
+/* Player Section */
+.player-section {
+    margin-bottom: 30px;
+}
+
+/* Embedded Video Player */
+.embed-container {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    height: 500px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+#anime-embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Download Button */
+.download-container {
+    margin-top: 20px;
+}
+
+.download-btn {
+    display: inline-block;
+    background: #007bff;
+    color: white;
+    padding: 12px 18px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.download-btn:hover {
+    background: #0056b3;
+}
+
+/* Episode Navigation */
+.episode-navigation {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.episode-nav-btn {
+    padding: 12px 15px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.episode-nav-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .embed-container {
+        height: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .embed-container {
+        height: 300px;
+    }
+}
+
+.close-ads {
+    position: absolute;
+    top: -15px;
+    right: 10px;
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    .anime-info {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    #anime-poster {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        margin: 0 auto;
+    }
+    
+    .anime-meta {
+        width: 100%;
+        padding: 15px;
+    }
+    
+    .anime-meta p {
+        font-size: 0.95em;
+    }
+    
+    .episode-list {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+    
+    .episode-item {
+        padding: 10px;
+        font-size: 13px;
+    }
+    
+    .episode-nav-btn, .fullscreen-button, #download-link {
+        padding: 10px 12px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .video-container {
+        padding-bottom: 60%; /* Slightly taller for mobile */
+    }
+    
+    .episode-list {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    }
+    
+    .episode-item {
+        padding: 8px;
+        font-size: 12px;
+    }
+    
+
+/* Tambahkan ini untuk error handling */
+.error {
+    color: #ff4444;
+    padding: 20px;
+    text-align: center;
+    background: #ffeeee;
+    border-radius: 5px;
+}
+
+.no-results {
+    color: #666;
+    padding: 20px;
+    text-align: center;
+    background: #f9f9f9;
+    border-radius: 5px;
+}
+
+/* Sticky ads responsive */
+.sticky-ads {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: white;
+    padding: 10px;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .sticky-ads {
+        padding: 5px;
+    }
+    
+    .sticky-ads ins {
+        width: 100% !important;
+        height: auto !important;
+    }
+}
+
+/* Perbaikan Pagination */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+    position: relative;
+    z-index: 10; /* Pastikan tidak tertutup elemen lain */
+}
+
+/* Perbaikan Tombol Pagination */
+.page-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 15px 25px; /* Perbesar tombol */
+    margin: 5px;
+    font-size: 20px; /* Perbesar teks tombol */
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.page-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
+
+.page-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.page-btn.active {
+    background-color: #28a745; /* Hijau untuk halaman aktif */
+    font-weight: bold;
+}
+
+/* Pastikan footer tidak menutupi konten */
+main {
+    margin-bottom: 80px; /* Tambahkan ruang agar pagination tidak tertutup footer */
+}
+
+#switch-server {
+    background-color: #28a745;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 10px 0;
+}
+
+#switch-server:hover {
+    background-color: #218838;
+}
+
+
+/* Perbaikan untuk footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #222;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
